@@ -1,0 +1,4 @@
+name = "treehouse-squire"
+main = "./main.js"
+compatibility_date = "2024-12-08"
+compatibility_flags = ["nodejs_compat"]

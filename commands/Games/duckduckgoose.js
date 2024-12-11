@@ -1,3 +1,6 @@
+const { EmbedBuilder } = require('discord.js');
+
+
 const profileModel = require('../../models/profileSchema');
 const duckCooldownSchema = require('../../models/duckCooldownSchema');
 const humanizeTime = require('../../globalFunctions/humanizeTime');
@@ -26,7 +29,7 @@ module.exports = {
     
         const current_time = Date.now();
 
-        if(!duckCooldownData && message.channel.id === '971788652722126958'){        
+        if(!duckCooldownData && message.channel.id === '1315510066971017286'){        
             const assignedNumber = Math.floor(Math.random() * 30) + 1;
             const drawnNumber = Math.floor(Math.random() * 30) + 1;
             if(assignedNumber === drawnNumber) {
@@ -38,16 +41,16 @@ module.exports = {
                         coins: randomNumber,
                     }
                 });
-                const embed = new Discord.MessageEmbed()
-                .setColor('#4rte11')
+                const embed = new EmbedBuilder()
+                .setColor('#4CAF50')
                 .setDescription(`${message.author.username}, you've been GOOSED and have been gifted \`${randomNumber}\` 🪙!!`)
                 .setImage('https://i.pinimg.com/originals/62/df/a4/62dfa46d3f6d3db12ed4254ab1c46895.jpg')
 
                 message.channel.send({ embeds: [embed] });
 
             } else {
-            const embed = new Discord.MessageEmbed()
-            .setColor('#4rte11')
+            const embed = new EmbedBuilder()
+            .setColor('#4CAF50')
             .setDescription(`${message.author.username}, you were not goosed...`)
 
             message.channel.send({ embeds: [embed] });
@@ -55,7 +58,7 @@ module.exports = {
 
         };
 
-        if(message.channel.id !== '971788652722126958') {
+        if(message.channel.id !== '971788652722126958' && message.channel.id !== '1315510066971017286') {
             return message.reply('The command cannot be used in this channel. Go to <#971788652722126958> ')
         };
 
