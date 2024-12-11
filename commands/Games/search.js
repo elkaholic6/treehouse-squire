@@ -24,9 +24,7 @@ module.exports = {
     
         const current_time = Date.now();
 
-        if(!searchCooldownData && message.channel.id === '971788652722126958') {
-
-
+        if(!searchCooldownData && message.channel.id === '1315510066971017286') {
             const location = [
                 "guitar case",
                 "chest",
@@ -91,7 +89,7 @@ module.exports = {
             message.channel.send(`<@${message.author.id}> Which location would you like to search?\n Type the location in this channel\n\`${chosenLocations.join('`\n`')}\``);
             checkCooldown();
         };
-        if(message.channel.id !== '971788652722126958') {
+        if(message.channel.id !== '971788652722126958' && message.channel.id !== '1315510066971017286') {
             return message.reply('The command cannot be used in this channel. Go to <#971788652722126958> ')
         };
         if (searchCooldownData && searchCooldownData.expires > current_time) {

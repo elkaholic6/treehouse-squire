@@ -1,6 +1,7 @@
 const profileModel = require('../../models/profileSchema');
 const rouletteCooldownSchema = require('../../models/rouletteCooldownSchema');
 const humanizeTime = require('../../globalFunctions/humanizeTime');
+const { EmbedBuilder } = require('discord.js');
 
 
 module.exports = {
@@ -60,7 +61,7 @@ module.exports = {
         
             const current_time = Date.now();
 
-            if (!rouletteCooldownData && message.channel.id === '971788652722126958') {
+            if (!rouletteCooldownData && message.channel.id === '1315510066971017286') {
                 function shuffleChamber(array) {
                     let totalChamberAmount = array.length;
                     while (0 !== totalChamberAmount) { 
@@ -89,35 +90,35 @@ module.exports = {
                 const filter = ({author, content}) => message.author == author && continueCommand == content && revolverChamber[0] !== ' boom'; 
 
                 const suspenseFunc = () => {
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new EmbedBuilder()
                     .setDescription(`${message.author.username} is pulling the trigger...`)
                     message.channel.send({embeds: [embed]});
                     return;
                 };
 
                 const loserTimeout = () => {
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new EmbedBuilder()
                     .setDescription(`💀 Oh no! ${message.author.username} You lost ${Math.floor(gambleAmount)} 🪙`);
                     message.channel.send({embeds: [embed]});
                     return;
                 };
 
                 const _loserTimeout = () => {
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new EmbedBuilder()
                     .setDescription(`💀 Oh no! ${message.author.username} lost ${Math.floor((multiplyGambleAmt[0]) * 1.5)} 🪙`);
                     message.channel.send({embeds: [embed]});
                     return;
                 };
 
                 const winnerTimeout = () => {
-                    const _embed = new Discord.MessageEmbed()
+                    const _embed = new EmbedBuilder()
                     .setDescription(`🥵 So far ${message.author.username} has earned ${multiplyGambleAmt[0]} 🪙\nWant to increase your winnings to ${multiplyGambleAmt[1]} 🪙? Type \`continue\` to pull the trigger again.`)
                     message.channel.send({embeds: [_embed]});
                     return;
                 };
 
                 const gameWinner = () => {
-                    const embed4 = new Discord.MessageEmbed()
+                    const embed4 = new EmbedBuilder()
                     .setDescription(`🤑 Congratulations! ${message.author.username} has won ${multiplyGambleAmt[1]} 🪙 for winning the game!`)
                     message.channel.send({ embeds: [embed4] });
                     return;
@@ -214,7 +215,7 @@ module.exports = {
                 checkCooldown();
 
             };
-            if(message.channel.id !== '971788652722126958') {
+            if(message.channel.id !== '971788652722126958' && message.channel.id !== '1315510066971017286') {
                 return message.reply('The command cannot be used in this channel. Go to <#971788652722126958> ')
             };
 

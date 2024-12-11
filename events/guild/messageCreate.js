@@ -39,12 +39,12 @@ module.exports = async (Discord, client, ProfileData, message) => {
 
     let rouletteCooldownData = await rouletteCooldownSchema.findOne(userQuery);
 
-    if (!rouletteCooldownData && command.name === 'roulette' && message.channel.id === '971788652722126958') {
+    if (!rouletteCooldownData && command.name === 'roulette' && message.channel.id === '1315510066971017286') {
         let cooldownDB = await rouletteCooldownSchema.create({
             userID: message.author.id,
             username: message.author.username,
             serverID: message.guild.id,
-            expires: (message.createdTimestamp + (1000 * 60 * 60)),
+            expires: (message.createdTimestamp + (1000 * 60)),
             current: true,
         });
         cooldownDB.save();
@@ -52,7 +52,7 @@ module.exports = async (Discord, client, ProfileData, message) => {
 
     let workCooldownData = await workCooldownSchema.findOne(userQuery);
 
-    if (!workCooldownData && command.name === 'work' && message.channel.id === '971788652722126958') {
+    if (!workCooldownData && command.name === 'work' && message.channel.id === '1315510066971017286') {
         let cooldownDB = await workCooldownSchema.create({
             userID: message.author.id,
             username: message.author.username,
@@ -65,7 +65,7 @@ module.exports = async (Discord, client, ProfileData, message) => {
 
     let searchCooldownData = await searchCooldownSchema.findOne(userQuery);
 
-    if (!searchCooldownData && command.name === 'search' && message.channel.id === '971788652722126958') {
+    if (!searchCooldownData && command.name === 'search' && message.channel.id === '971788652722126958' && message.channel.id === '1315510066971017286') {
         let cooldownDB = await searchCooldownSchema.create({
             userID: message.author.id,
             username: message.author.username,
@@ -78,7 +78,7 @@ module.exports = async (Discord, client, ProfileData, message) => {
 
     let duckCooldownData = await duckCooldownSchema.findOne(userQuery);
 
-    if (!duckCooldownData && command.name === 'duck' && message.channel.id === '971788652722126958') {
+    if (!duckCooldownData && command.name === 'duck' && message.channel.id === '971788652722126958' && message.channel.id === '1315510066971017286') {
         let cooldownDB = await duckCooldownSchema.create({
             userID: message.author.id,
             username: message.author.username,

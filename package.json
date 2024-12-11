@@ -9,9 +9,12 @@
   "author": "Wyatt",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.16.3",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
     "mongoose": "^6.2.8"
+  },
+  "devDependencies": {
+    "wrangler": "^3.93.0"
   }
 }

@@ -1,10 +1,12 @@
 //const { User } = require("discord.js");
+const { EmbedBuilder } = require('discord.js');
+
 
 module.exports = {
     name: 'sam',
     description: "sam's creepy lover",
     execute(message, args, client, Discord, ProfileData, user, userQuery) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new EmbedBuilder()
         .setTitle(`You have just summoned Sam's Lover`)
         .setColor('#ea47a7')
         .setDescription(`Oh looky here 😜.. Sam, I am coming for you!`)

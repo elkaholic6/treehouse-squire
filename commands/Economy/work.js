@@ -1,3 +1,6 @@
+const { EmbedBuilder } = require('discord.js');
+
+
 const profileModel = require('../../models/profileSchema');
 const workCooldownSchema = require('../../models/WorkCooldownSchema');
 const humanizeTime = require('../../globalFunctions/humanizeTime');
@@ -27,7 +30,7 @@ module.exports = {
         const current_time = Date.now();
 
 
-        if(!workCooldownData && message.channel.id === '971788652722126958') {
+        if(!workCooldownData && message.channel.id === '1315510066971017286') {
             const randomNumber = Math.floor(Math.random() * 250) + 100;
             const response = await profileModel.findOneAndUpdate({
                 userID: message.author.id,
@@ -37,14 +40,14 @@ module.exports = {
                 }
             });
 
-            const embed = new Discord.MessageEmbed()
-            .setColor('#4rte11')
+            const embed = new EmbedBuilder()
+            .setColor('#4CAF50')
             .setDescription(`${message.author.username}, you started working again. You gain \`${randomNumber}\` 🪙: from your last work. Come back in 1 hour to claim another paycheck.`)
 
             message.channel.send({ embeds: [embed] });
             checkCooldown();
         };
-        if(message.channel.id !== '971788652722126958') {
+        if(message.channel.id !== '971788652722126958' && message.channel.id !== '1315510066971017286') {
             return message.reply('The command cannot be used in this channel. Go to <#971788652722126958> ')
         };
 
